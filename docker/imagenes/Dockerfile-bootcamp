@@ -1,0 +1,5 @@
+FROM ubuntu
+
+COPY README.txt /home/root/
+
+CMD cat /home/root/README.txt
