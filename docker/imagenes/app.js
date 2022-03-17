@@ -6,8 +6,10 @@ let contador = 1;
 
 const server = http.createServer((req, res) => {
   const result = 
-`Hola Mundo
+`${process.env.MESSAGE_PREFIX}
+Hola Mundo
 (Invocado ${contador} ${contador > 1 ? 'veces' : 'vez'})
+${process.env.MESSAGE_SUFFIX}
 `;
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');

@@ -1,7 +1,7 @@
 FROM node:16.14.0-alpine
 
 WORKDIR /app
-COPY app.js .
+COPY app.js app.js
 
 EXPOSE 3000
 ENTRYPOINT [ "node", "app.js" ]
