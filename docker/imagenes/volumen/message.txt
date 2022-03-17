@@ -1,0 +1,10 @@
+======================
+= MENSAJE IMPORTANTE =
+======================
+
+Si puedes ver este mensaje, es que la aplicación funciona
+correctamente. El fichero con este texto se encuentra en 
+un volumen de Docker.
+
+Cuando se ejecute la aplicación, también se genera un LOG
+en el mismo volumen con las trazas que se generan.
