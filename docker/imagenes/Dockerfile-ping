@@ -1,0 +1,5 @@
+FROM ubuntu
+
+RUN apt-get update && apt-get upgrade -y && apt-get -y install iputils-ping
+
+ENTRYPOINT ["/bin/sh", "-c", "ping -i 2 ${SERVIDOR_REMOTO:-127.0.0.1}"]

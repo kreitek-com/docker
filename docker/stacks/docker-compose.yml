@@ -1,0 +1,50 @@
+version: '3.4'
+
+# Definición de servicios
+services:
+  app_node:
+    image: bootcamp_node:latest
+    container_name: bootcamp_node
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      - MESSAGE_PREFIX=*** Este texto aparece ANTES del mensaje ***
+      - MESSAGE_SUFFIX=+++ Este texto aparece DESPUÉS del mensaje +++
+    networks:
+      - red_node
+  
+  app_ping:
+    image: bootcamp:ping
+    container_name: bootcamp_ping
+    restart: always
+    depends_on:
+      - app_node
+    environment:
+      SERVIDOR_REMOTO: "app_node"
+    networks:
+      - red_volumen
+      - red_node
+
+  app_volumen:
+    image: bootcamp_node:volumen
+    container_name: bootcamp_volumen
+    restart: unless-stopped
+    ports:
+      - 4000:3000
+    volumes:
+      - nombre_volumen:/app/data
+    networks:
+      - red_volumen
+ 
+
+# Definición de redes
+networks:
+  red_volumen:
+  red_node:
+
+# Definción de volúmenes
+volumes:
+  nombre_volumen:
+
+
